@@ -1,0 +1,34 @@
+#!/bin/bash
+echo '[before files] name:'
+read before
+
+echo '[after files] name:'
+read after
+
+echo '[before files] start:'
+read start_before
+
+echo '[before files] end:'
+read end_before
+
+echo '[after files] start:'
+read start_after
+
+echo '[after files] step:'
+read step_after
+
+
+
+
+fwd_before=${before%%\$i*}
+bak_before=${before##*\$i}
+
+fwd_after=${after%%\$j*}
+bak_after=${after##*\$j}
+
+for ((i=start_before,j=start_after;i<=end_before;i++,j=j+step_after))
+do
+cp $fwd_before$i$bak_before $fwd_after$j$bak_after
+done
+
+#cp $before$i.txt $i$after.txt

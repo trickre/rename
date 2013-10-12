@@ -1,0 +1,24 @@
+#!/bin/bash
+rename(){
+
+}
+
+select cmd1 in Auto Manual Quit
+do
+	case $cmd1 in
+	Auto)
+	  echo 'Auto Mode: auto read files.';;
+	Manual)
+	  echo 'Manual Mode: Manual'
+	  
+	  ;;
+	Quit)
+	  echo 'break'
+	  break;;
+	*)
+	  echo "$REPLY"' No such command';;
+	esac
+	echo
+done
+
+
